@@ -7,6 +7,7 @@
   <title>Classificador Inteligente de E-mails</title>
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
   <link rel="stylesheet" href="{% static "global/css/styles.css" %}"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.14.305/pdf.min.js"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
   </style>
@@ -47,6 +48,13 @@
 
       <div class="submit_button">
         <button type="submit">Enviar</button>
+      </div>
+
+      <div class="result_container" id="result_container">
+        <h2>⤷ Resultado da Análise</h2>
+        <p><span class="result_detalhes">Categoria: </span><span id="result_categoria"></span></p>
+        <p><span class="result_detalhes">Resposta sugerida:</span></p>
+        <p id="result_resposta"></p>
       </div>
     </section>
   </main>

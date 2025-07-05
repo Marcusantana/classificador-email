@@ -100,6 +100,7 @@ main{
   text-decoration-color: var(--primary-blue);
   text-decoration-thickness: 3px;
   text-underline-offset: 4px;
+  letter-spacing: 1px;
 }
 
 .container_text p{
@@ -156,6 +157,7 @@ main{
   outline: none;
   transition: border-color 0.3s ease;
   background-color: var(--background-text-area);
+  color: var(--text-color);
 }
 
 .manual_input textarea:focus {
@@ -182,75 +184,26 @@ main{
   display: none;
 }
 
-/* ======= BARRA DE CARREGAMENTO ======= */
-#upload_status {
-  margin-top: 30px;
-  width: 100%;
-  font-size: 1.1rem;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-#file_name {
-  flex-grow: 1;
-  color: var(--text-color);
-}
-
-#progress_container {
-  position: relative;
-  display: none;
-  width: 100%;
-  height: 22px;
-  background-color: var(--gray-light);
-  border-radius: 10px;
-  overflow: hidden;
-  margin-top: 2px;
-}
-
-#progress_bar {
-  height: 100%;
-  width: 0%;
-  background-color: var(--progress-bar);
-  transition: width 0.3s ease;
-}
-
-#progress_text {
-  position: absolute;
-  top: 45%;
-  right: 12px;
-  transform: translateY(-50%);
-  font-weight: 600;
-  font-size: 0.9rem;
-  color: var(--progress-text);
-  user-select: none;
-}
-
-.success_icon {
-  color: var(--success-green);
-  font-size: 1.5rem;
-}
-
-.submit_button{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    margin-top: 10px;
-}
-
 /* ======= BOTAO DE ENVIO ======= */
+.submit_button{
+display: flex;
+align-items: center;
+justify-content: center;
+width: 100%;
+margin-top: 10px;
+}
+
 .submit_button button{
-    width: 100%;
-    font-size: 1rem;
-    font-weight: 600;
-    height: 40px;
-    border: 1px solid var(--button-border);
-    border-radius: 10px;
-    background-color: var(--primary-blue);
-    color: var(--button-text);
-    transition: background-color 0.3s ease;
-    cursor: pointer;
+width: 100%;
+font-size: 1rem;
+font-weight: 600;
+height: 40px;
+border: 1px solid var(--button-border);
+border-radius: 10px;
+background-color: var(--primary-blue);
+color: var(--button-text);
+transition: background-color 0.3s ease;
+cursor: pointer;
 }
 
 .submit_button button:hover{
@@ -285,4 +238,45 @@ main{
 }
 .darkmode #theme_switch i:last-child{
   display: block;
+}
+
+.result_container{
+display:none; 
+margin-top: 25px; 
+background-color: transparent; 
+padding: 15px; 
+border-radius: 10px;
+color: var(--text-color);
+}
+
+.result_container h2{
+  font-size: 1.7rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--primary-blue);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 4px;
+  letter-spacing: 0.5px;
+  margin-bottom: 17px;
+}
+
+#result_categoria{
+  text-decoration: underline;
+  text-decoration-color: var(--primary-blue);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 1px;
+}
+
+#result_resposta{
+  text-align: justify;
+}
+
+.result_container p{
+  font-size: 1.2rem;
+  margin-top: 8px;
+}
+
+.result_detalhes{
+  font-size: 1.4rem;
+  font-weight: 500;
 }
