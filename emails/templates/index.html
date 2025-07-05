@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Classificador Inteligente de E-mails</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="{% static "global/css/styles.css" %}"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.14.305/pdf.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+  </style>
+</head>
+<body>
+  <main>
+    <button id="theme_switch">
+      <i class="ri-moon-fill"></i>
+      <i class="ri-sun-fill"></i>
+    </button>
+    
+    <section class="container">
+      <div class="container_text">
+        <h1>Classificador Inteligente de E-mails</h1>
+        <p>Envie um arquivo ou cole o conteúdo de um e-mail para analisarmos automaticamente sua categoria e sugerirmos uma resposta.</p>
+      </div>
+
+      <div class="file_box">
+        <i class="ri-upload-cloud-2-fill"></i>
+        <h2>Selecione seus arquivos (PDF ou .txt)</h2>
+        <button id="upload_button">Selecionar Arquivo</button>
+        <input type="file" id="email_file" accept=".txt,.pdf" />
+      </div>
+
+      <div id="upload_status" style="display:none;">
+        <div id="file_name"></div>
+        <div id="progress_container">
+          <div id="progress_bar"></div>
+          <span id="progress_text">0%</span>
+        </div>
+        <i class="ri-checkbox-circle-line success_icon" style="display:none;"></i>
+      </div>
+
+      <div class="manual_input">
+        <label for="email_text">Ou cole o conteúdo do e-mail aqui:</label>
+        <textarea id="email_text" placeholder="Digite ou cole aqui..." rows="6"></textarea>
+      </div>
+
+      <div class="submit_button">
+        <button type="submit">Enviar</button>
+      </div>
+
+      <div class="result_container" id="result_container">
+        <h2>⤷ Resultado da Análise</h2>
+        <p><span class="result_detalhes">Categoria: </span><span id="result_categoria"></span></p>
+        <p><span class="result_detalhes">Resposta sugerida:</span></p>
+        <p id="result_resposta"></p>
+      </div>
+    </section>
+  </main>
+  <script src="{% static "global/js/scripts.js" %}"></script>
+</body>
+</html>
