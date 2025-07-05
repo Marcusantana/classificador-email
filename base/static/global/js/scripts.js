@@ -18,7 +18,7 @@ const getCsrfToken = () => {
             return decodeURIComponent(cookie.slice('csrftoken'.length + 1));
         }
     }
-    
+
     return null;
 };
 
@@ -73,7 +73,7 @@ submitButton.addEventListener('click', async () => {
     try {
         const res = await fetch('/classify_email/', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'X-CSRFToken': getCookie('csrftoken') },
+            headers: { 'Content-Type': 'application/json', 'X-CSRFToken': getCsrfToken() },
             body: JSON.stringify({ email_text: text }),
         });
 
