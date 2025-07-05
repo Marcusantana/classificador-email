@@ -6,12 +6,19 @@ const submitButton = document.querySelector('.submit_button button');
 const themeSwitch = document.getElementById('theme_switch');
 
 /* ======= FUNCAO PARA OBTER O CSRF TOKEN ======= */
-const getCookie = name => {
-    const cookies = document.cookie.split(';').map(c => c.trim());
-    for (const cookie of cookies) {
-        if (cookie.startsWith(name + '=')) return decodeURIComponent(cookie.slice(name.length + 1));
+const getCsrfToken = () => {
+    const csrfMeta = document.querySelector('meta[name="csrf-token"]');
+    if (csrfMeta && csrfMeta.content) {
+        return csrfMeta.content;
     }
 
+    const cookies = document.cookie.split(';').map(c => c.trim());
+    for (const cookie of cookies) {
+        if (cookie.startsWith('csrftoken=')) {
+            return decodeURIComponent(cookie.slice('csrftoken'.length + 1));
+        }
+    }
+    
     return null;
 };
 
