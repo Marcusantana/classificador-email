@@ -1,3 +1,9 @@
+import os
+import django
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'app.settings')
+django.setup()
+
 from django.test import TestCase
 from emails.utils import classify_email, analyze_email_with_ai
 from unittest.mock import patch

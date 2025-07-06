@@ -6,6 +6,7 @@ from .utils import analyze_email_with_ai
 
 # ======= RENDERIZA O INDEX =======
 def index(request):
+    print("DEBUG: View index foi acessada!") # Adicione esta linha
     return render(request, "index.html")
 
 # ======= FUNCAO PARA RECEBER E CLASSIFICAR EMAIL VIA POST =======

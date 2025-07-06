@@ -1,3 +1,9 @@
+import os
+import django
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'app.settings')
+django.setup()
+
 import json
 from django.test import TestCase, Client
 from django.urls import reverse
@@ -8,10 +14,13 @@ class EmailViewsTest(TestCase):
         self.client = Client()
 
     # ======= TESTA SE O INDEX CARREGA CORRETAMENTE =======
-    def test_index_view(self):
+    def test_index_view_content(self):
         response = self.client.get(reverse('index'))
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'index.html')
+        print("\n--- Conteúdo Completo da Resposta HTML no Teste ---")
+        print(response.content.decode('utf-8'))
+        print("--- Fim do Conteúdo da Resposta HTML no Teste ---\n")
+        self.assertContains(response, '<h1>Classificador Inteligente de E-mails</h1>') 
 
     # ======= TESTA CLASSIFICACAO DE EMAIL VIA POST =======
     def test_classify_email_valid_post(self):

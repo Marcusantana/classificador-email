@@ -1,5 +1,5 @@
 import os
-import django
+import sys
 import pandas as pd
 import re
 import string
@@ -14,8 +14,9 @@ from sklearn.linear_model import LogisticRegression
 from django.conf import settings
 
 # ======= CONFIGURACOES PARA DJANGO/NLTK/PRE-PROCESSAMENTO =======
+project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+sys.path.append(project_root)
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'app.settings')
-django.setup()
 nltk.download('stopwords')
 nltk.download('rslp')
 stopwords_pt = set(stopwords.words('portuguese'))
